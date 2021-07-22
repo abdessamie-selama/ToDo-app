@@ -3,8 +3,36 @@ extends layout
 block content
   .row
     .col-md-4           
-      form(action="/ajouter",method="POST")
-        .form-group
-          label(for='todo') Ajouter une tache:
-          input.form-control#todo(type='text')
-        input(type="submit",value="Ajouter").btn.btn-primary
+      .card
+        .card-header
+          h3 Ajouter une tache
+        .card-body
+          form(action="/ajouter",method="POST")
+            .form-group
+              label(for='todo') Ajouter une tache:
+              input.form-control#todo(type='text',name="title")
+            input(type="submit",value="Ajouter").btn.btn-primary.btn-block
+
+    .col-md-8
+      table.table.table-striped
+        thead
+          tr
+            th(scope='col') #
+            th(scope='col') First
+            th(scope='col') Last
+            th(scope='col') Handle
+        tbody
+          tr
+            th(scope='row') 1
+            td Mark
+            td Otto
+            td @mdo
+          tr
+            th(scope='row') 2
+            td Jacob
+            td Thornton
+            td @fat
+          tr
+            th(scope='row') 3
+            td(colspan='2') Larry the Bird
+            td @twitter
