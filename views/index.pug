@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .row
+    .col-md-4           
+      form(action="/ajouter",method="POST")
+        .form-group
+          label(for='todo') Ajouter une tache:
+          input.form-control#todo(type='text')
+        input(type="submit",value="Ajouter").btn.btn-primary
