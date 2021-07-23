@@ -1,9 +1,21 @@
+const Todo = require('../models/Todo');
+
 const getIndex = (req,res)=>{
-	res.render('index');
+	Todo.find({},(err,todos)=>{
+		if(err) console.log(err);
+		res.render('index',{
+			todos:todos
+		});
+	});
 }
 
 const postIndex = (req,res)=> {
-	console.log(req.body.title);
+	const newTodo = new Todo({
+		title:req.body.title
+	});
+	newTodo.save((err)=>{
+		if(err) console.log(err);
+	});
 	res.redirect('/');
 }
 

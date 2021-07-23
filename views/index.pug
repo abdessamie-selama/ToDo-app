@@ -11,28 +11,27 @@ block content
             .form-group
               label(for='todo') Ajouter une tache:
               input.form-control#todo(type='text',name="title")
-            input(type="submit",value="Ajouter").btn.btn-primary.btn-block
+            button(type="submit").btn.btn-primary.w-100
+              | Ajouter
+              i.fas.fa-plus.pl-1
 
     .col-md-8
       table.table.table-striped
         thead
           tr
-            th(scope='col') #
-            th(scope='col') First
-            th(scope='col') Last
-            th(scope='col') Handle
+            th(scope='col') Id
+            th(scope='col') Todo
+            th(scope='col') Edit
+            th(scope='col') Delete
         tbody
+        each todo in todos
           tr
-            th(scope='row') 1
-            td Mark
-            td Otto
-            td @mdo
+            th(scope='row')=todo.id
+            td=todo.title
+            td
+              button.btn.btn-info
+                i.fas.fa-pencil-alt
+            td
+              button.btn.btn-danger
+                i.fas.fa-trash-alt
           tr
-            th(scope='row') 2
-            td Jacob
-            td Thornton
-            td @fat
-          tr
-            th(scope='row') 3
-            td(colspan='2') Larry the Bird
-            td @twitter
